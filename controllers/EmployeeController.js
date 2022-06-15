@@ -1,6 +1,7 @@
 const Employee = require('../models/Employee')
 
-const index = (req,res,next)=> {
+
+const index =  (req,res,next)=> {
     Employee.find({ category: null })
     .then(response=> {
         res.json(response)
@@ -37,7 +38,9 @@ const show = (req, res, next)=>{
         })
     })
 }
+
 const store = (req, res, next)=> {
+    console.log(req.userName)
     let employee = new Employee({
         name:req.body.name,
         prevPrice:req.body.prevPrice,
